@@ -353,16 +353,16 @@ export default function BouncePage() {
       {/* HERO CONTENT — below video */}
       <div id="first" className="bc-hero-content">
         <div>
-          <div className="bc-hero-tag">Jump. Fly. Feel Alive.</div>
-          <h2 className="bc-hero-h2">
+          <div data-cg-el="hero_eyebrow" className="bc-hero-tag">Jump. Fly. Feel Alive.</div>
+          <h2 data-cg-el="hero_headline_1" className="bc-hero-h2">
             The Workout<br />That Feels<br />Like <em>Play.</em>
           </h2>
-          <p className="bc-hero-desc">
+          <p data-cg-el="hero_subtitle" className="bc-hero-desc">
             Low-impact trampoline fitness that burns 400+ calories per class, protects your joints, and leaves you smiling every single time. Austin&apos;s most energetic hour.
           </p>
           <div className="bc-hero-actions">
-            <a href="#pricing" className="bc-btn-primary">First Class Free</a>
-            <a href="#classes" className="bc-btn-ghost">View Schedule</a>
+            <a data-cg-el="hero_cta_primary" href="#pricing" className="bc-btn-primary">First Class Free</a>
+            <a data-cg-el="hero_cta_secondary" href="#classes" className="bc-btn-ghost">View Schedule</a>
           </div>
         </div>
         <div className="bc-hero-stats">
