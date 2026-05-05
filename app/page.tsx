@@ -1,7 +1,7 @@
 // @ts-nocheck
-'use client';
-import { useEffect, useState } from 'react';
-import { siteData } from '@/lib/site-data';
+"use client";
+import { useEffect, useState } from "react";
+import { siteData } from "@/lib/site-data";
 
 const css = `
   :root {
@@ -293,10 +293,16 @@ const css = `
 
 function useReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal');
+    const els = document.querySelectorAll(".reveal");
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }),
-      { threshold: 0.1 }
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            io.unobserve(e.target);
+          }
+        }),
+      { threshold: 0.1 },
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
@@ -308,8 +314,8 @@ export default function BouncePage() {
   useReveal();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -317,20 +323,28 @@ export default function BouncePage() {
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
       {/* NAV — transparent over video */}
-      <nav className={`bc-nav${scrolled ? ' scrolled' : ''}`}>
-        <a href="#" className="bc-nav-logo"><span>BOUNCE</span></a>
+      <nav className={`bc-nav${scrolled ? " scrolled" : ""}`}>
+        <a href="#" className="bc-nav-logo">
+          <span>BOUNCE</span>
+        </a>
         <div className="bc-nav-links">
           <a href="#classes">Classes</a>
           <a href="#why">Why BOUNCE</a>
           <a href="#pricing">Pricing</a>
           <a href="#contact">Contact</a>
-          <a href="#first" className="bc-btn-nav">First Class Free</a>
+          <a href="#first" className="bc-btn-nav">
+            First Class Free
+          </a>
         </div>
       </nav>
 
       {/* CINEMATIC TOP VIDEO */}
       <div className="bc-video-wrap">
-        <video autoPlay muted loop playsInline
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           poster="https://images.unsplash.com/photo-1530655638484-ad69b5f5ca0a?w=1800&q=80"
         >
           <source
@@ -340,7 +354,9 @@ export default function BouncePage() {
         </video>
         <div className="bc-video-overlay" />
         <div className="bc-video-wordmark">
-          <div className="bc-wordmark-title"><span>B</span>OUNCE</div>
+          <div className="bc-wordmark-title">
+            <span>B</span>OUNCE
+          </div>
           <div className="bc-wordmark-sub">Austin, TX — Trampoline Fitness</div>
         </div>
         <div className="bc-scroll-hint">
@@ -353,21 +369,45 @@ export default function BouncePage() {
       {/* HERO CONTENT — below video */}
       <div id="first" className="bc-hero-content">
         <div>
-          <div data-cg-el="hero_eyebrow" className="bc-hero-tag">Jump. Fly. Feel Alive.</div>
+          <div data-cg-el="hero_eyebrow" className="bc-hero-tag">
+            Jump. Fly. Feel Alive.
+          </div>
           <h2 data-cg-el="hero_headline_1" className="bc-hero-h2">
-            The Workout<br />That Feels<br />Like <em>Play.</em>
+            The Workout
+            <br />
+            That Feels
+            <br />
+            Like <em>Play.</em>
           </h2>
           <p data-cg-el="hero_subtitle" className="bc-hero-desc">
-            Low-impact trampoline fitness that burns 400+ calories per class, protects your joints, and leaves you smiling every single time. Austin&apos;s most energetic hour.
+            Low-impact trampoline fitness that burns 400+ calories per class,
+            protects your joints, and leaves you smiling every single time.
+            Austin&apos;s most energetic hour.
           </p>
           <div className="bc-hero-actions">
-            <a data-cg-el="hero_cta_primary" href="#pricing" className="bc-btn-primary">First Class Free</a>
-            <a data-cg-el="hero_cta_secondary" href="#classes" className="bc-btn-ghost">View Schedule</a>
+            <a
+              data-cg-el="hero_cta_primary"
+              href="#pricing"
+              className="bc-btn-primary"
+            >
+              First Class Free
+            </a>
+            <a
+              data-cg-el="hero_cta_secondary"
+              href="#classes"
+              className="bc-btn-ghost"
+            >
+              View Schedule
+            </a>
           </div>
         </div>
         <div className="bc-hero-stats">
           {siteData.stats.map((s, i) => (
-            <div key={s.label} className="bc-stat-card reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+            <div
+              key={s.label}
+              className="bc-stat-card reveal"
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
               <div className="bc-stat-value">{s.value}</div>
               <div className="bc-stat-label">{s.label}</div>
             </div>
@@ -381,15 +421,25 @@ export default function BouncePage() {
           <div className="bc-why-header reveal">
             <div>
               <span className="bc-section-tag">The Science of Joy</span>
-              <h2 className="bc-section-title">Why<br />Bounce?</h2>
+              <h2 className="bc-section-title">
+                Why
+                <br />
+                Bounce?
+              </h2>
             </div>
             <p className="bc-section-sub">
-              Trampoline training isn&apos;t just fun — it&apos;s one of the most effective full-body workouts available. Here&apos;s what happens when you leave the floor.
+              Trampoline training isn&apos;t just fun — it&apos;s one of the
+              most effective full-body workouts available. Here&apos;s what
+              happens when you leave the floor.
             </p>
           </div>
           <div className="bc-why-grid">
             {siteData.benefits.map((b, i) => (
-              <div key={b.name} className="bc-why-card reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+              <div
+                key={b.name}
+                className="bc-why-card reveal"
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
                 <div className="bc-why-icon">{b.icon}</div>
                 <div className="bc-why-name">{b.name}</div>
                 <p className="bc-why-desc">{b.desc}</p>
@@ -404,14 +454,24 @@ export default function BouncePage() {
         <div className="bc-classes-inner">
           <div className="bc-classes-header reveal">
             <span className="bc-section-tag">Class Formats</span>
-            <h2 className="bc-section-title">Jump Into<br />Any Class</h2>
+            <h2 className="bc-section-title">
+              Jump Into
+              <br />
+              Any Class
+            </h2>
             <p className="bc-section-sub">
-              Six formats for every age and fitness level. No experience required for most — just bring willingness to move, laugh, and sweat.
+              Six formats for every age and fitness level. No experience
+              required for most — just bring willingness to move, laugh, and
+              sweat.
             </p>
           </div>
           <div className="bc-classes-grid">
             {siteData.classes.map((c, i) => (
-              <div key={c.name} className="bc-class-card reveal" style={{ transitionDelay: `${i * 60}ms` }}>
+              <div
+                key={c.name}
+                className="bc-class-card reveal"
+                style={{ transitionDelay: `${i * 60}ms` }}
+              >
                 <div className="bc-class-badges">
                   <span className="bc-badge bc-badge-level">{c.level}</span>
                   <span className="bc-badge bc-badge-dur">{c.duration}</span>
@@ -429,24 +489,40 @@ export default function BouncePage() {
         <div className="bc-pricing-inner">
           <div className="bc-pricing-header reveal">
             <span className="bc-section-tag">Membership</span>
-            <h2 className="bc-section-title">Ready<br />to Jump?</h2>
+            <h2 className="bc-section-title">
+              Ready
+              <br />
+              to Jump?
+            </h2>
             <p className="bc-section-sub">
-              Your first class is on us. After that, choose the plan that fits your frequency — no long-term contracts.
+              Your first class is on us. After that, choose the plan that fits
+              your frequency — no long-term contracts.
             </p>
           </div>
           <div className="bc-pricing-grid">
             {siteData.pricing.map((p, i) => (
-              <div key={p.name} className={`bc-price-card reveal${p.highlight ? ' highlight' : ''}`} style={{ transitionDelay: `${i * 100}ms` }}>
-                {p.highlight && <span className="bc-popular-badge">Most Popular</span>}
+              <div
+                key={p.name}
+                className={`bc-price-card reveal${p.highlight ? " highlight" : ""}`}
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                {p.highlight && (
+                  <span className="bc-popular-badge">Most Popular</span>
+                )}
                 <div className="bc-price-name">{p.name}</div>
                 <div className="bc-price-amount">{p.price}</div>
                 <div className="bc-price-period">{p.period}</div>
                 <ul className="bc-price-features">
                   {p.features.map((f) => (
-                    <li key={f}><span className="bc-check">✓</span>{f}</li>
+                    <li key={f}>
+                      <span className="bc-check">✓</span>
+                      {f}
+                    </li>
                   ))}
                 </ul>
-                <a href="#first" className="bc-price-cta">Get Started</a>
+                <a href="#first" className="bc-price-cta">
+                  Get Started
+                </a>
               </div>
             ))}
           </div>
@@ -458,9 +534,13 @@ export default function BouncePage() {
         <div className="bc-cta-inner">
           <h2 className="bc-cta-title reveal">Leave The Floor.</h2>
           <p className="bc-cta-sub reveal">
-            Come in for your free class. Try the trampoline, meet the coaches, and feel the difference between exercise you endure and exercise you love.
+            Come in for your free class. Try the trampoline, meet the coaches,
+            and feel the difference between exercise you endure and exercise you
+            love.
           </p>
-          <a href="#first" className="bc-btn-cta reveal">Book Free Class Now</a>
+          <a href="#first" className="bc-btn-cta reveal">
+            Book Free Class Now
+          </a>
         </div>
       </section>
 
@@ -468,35 +548,62 @@ export default function BouncePage() {
       <footer id="contact" className="bc-footer">
         <div className="bc-footer-inner">
           <div>
-            <div className="bc-footer-logo"><span>BOUNCE</span> Fitness</div>
+            <div className="bc-footer-logo">
+              <span>BOUNCE</span> Fitness
+            </div>
             <p className="bc-footer-desc">
-              {siteData.gym.address}<br />
-              {siteData.gym.phone}<br />
+              {siteData.gym.address}
+              <br />
+              {siteData.gym.phone}
+              <br />
               {siteData.gym.email}
             </p>
           </div>
           <div>
             <div className="bc-footer-h">Jump</div>
             <ul className="bc-footer-links">
-              <li><a href="#classes">Schedule</a></li>
-              <li><a href="#why">Why BOUNCE</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#">Kids Classes</a></li>
+              <li>
+                <a href="#classes">Schedule</a>
+              </li>
+              <li>
+                <a href="#why">Why BOUNCE</a>
+              </li>
+              <li>
+                <a href="#pricing">Pricing</a>
+              </li>
+              <li>
+                <a href="#">Kids Classes</a>
+              </li>
             </ul>
           </div>
           <div>
             <div className="bc-footer-h">Studio</div>
             <ul className="bc-footer-links">
-              <li><a href="#">First Visit</a></li>
-              <li><a href="#">Grip Socks</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+              <li>
+                <a href="#">First Visit</a>
+              </li>
+              <li>
+                <a href="#">Grip Socks</a>
+              </li>
+              <li>
+                <a href="#">FAQ</a>
+              </li>
+              <li>
+                <a href="#">Privacy Policy</a>
+              </li>
             </ul>
           </div>
         </div>
         <div className="bc-footer-bottom">
-          <span>© {new Date().getFullYear()} BOUNCE Fitness. All rights reserved.</span>
-          <span>Powered by <a href="https://koriva.com" className="bc-footer-brand">Koriva</a></span>
+          <span>
+            © {new Date().getFullYear()} BOUNCE Fitness. All rights reserved.
+          </span>
+          <span>
+            Powered by{" "}
+            <a href="https://koriva.com" className="bc-footer-brand">
+              Koriva
+            </a>
+          </span>
         </div>
       </footer>
     </>
