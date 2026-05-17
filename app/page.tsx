@@ -600,8 +600,8 @@ export default function BouncePage() {
           </span>
           <span>
             Powered by{" "}
-            <a href="https://koriva.com" className="bc-footer-brand">
-              Koriva
+            <a href="https://garrison365.com" className="bc-footer-brand">
+              Garrison365
             </a>
           </span>
         </div>
